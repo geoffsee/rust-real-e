@@ -22,7 +22,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     // Print first five records as a test to make sure things are working
     db::print_first_five_records()?;
-    println!("Everything seems to be setup correctly! Executing Analysis");
+    println!("\n\n\nEverything seems to be setup correctly! Executing Analysis...");
 
 
     println!("\n\n\nGetting names with most parcels\n");
