@@ -65,30 +65,22 @@ Get the top owners by total appraised value
 
 3. **Saving to DuckDB**: The records are saved into a DuckDB database (`parcel_data.db`) using the `duckdb` crate.
 
-4. **Data Analysis**:
-    - **Printing Records**: Prints the first five records from the database.
-    - **Top Owners**: Lists owners with the most parcels.
-    - **Appraised Value**: Shows owners with the highest total appraised value.
+4. **Data Analysis**: DuckDB is then used to perform SQL-based analysis on the imported parcel data. This allows for quick aggregation, filtering, and transformation of the data directly in the database without needing to move data to an external analysis tool. With DuckDB's efficient in-memory processing, complex analytical queries run fast, making it ideal for examining patterns, trends, and insights in parcel data.
 
 ## Quick Start
 
 1. **Clone the Repository**:
-
-   ```shell
-   git clone https://github.com/geoffsee/rust-real-e.git
-   ```
-
+```shell
+git clone https://github.com/geoffsee/rust-real-e.git
+```
 2. **Navigate to the Project**:
-
-   ```shell
-   cd rust-real-e
-   ```
-
+```shell
+cd rust-real-e
+```
 3. **Run the Program**:
-
-   ```shell
-   cargo run
-   ```
+```shell
+cargo run
+```
 
    Make sure you have Rust installed.
 
