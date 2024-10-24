@@ -25,10 +25,10 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 
     println!("\n\n\nGetting names with most parcels\n");
-    db::get_names_with_most_parcels(100)?;
+    db::get_names_with_most_parcels(7)?;
 
     println!("\n\n\nGet the top owners by total appraised value\n");
-    db::get_total_appraised_value_per_owner(100)?;
+    db::get_total_appraised_value_per_owner(7)?;
 
     // println!("\n\n\nDetecting inflated property appraisals\n");
     // db::detect_inflated_property_appraisals()?;
