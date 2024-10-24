@@ -1,4 +1,5 @@
 use std::fmt;
+use duckdb::ToSql;
 use crate::pretty_print_table::pretty_print_table;
 
 #[derive(Debug,Clone)]
@@ -97,6 +98,9 @@ pub(crate) struct ParcelRecord {
     pub alternate_unit_id: Option<String>,
     pub flood_risks: Option<String>,
     pub oby_count: Option<f64>,
+    pub sale_price: Option<f64>,
+    pub developer_id: Option<String>,
+    pub building_permits: Option<f64>
 }
 
 // Implement Display for ParcelRecord
