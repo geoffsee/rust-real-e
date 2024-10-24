@@ -1,3 +1,4 @@
+use duckdb::Connection;
 use prettytable::{format, Cell, Row, Table};
 use crate::parcel_record::ParcelRecord;
 
@@ -101,4 +102,20 @@ pub fn pretty_print_5(records: &mut Vec<ParcelRecord>) {
 
     // Print the table
     table.printstd();
+}
+
+pub fn print_parcel_table_schema() -> Result<(), Box<dyn std::error::Error>> {
+    let conn = Connection::open("parcel_data.db")?;
+    let mut stmt = conn.prepare("PRAGMA table_info('parcel')")?;
+    let mut rows = stmt.query([])?;
+
+    println!("Schema of 'parcel' table:");
+    while let Some(row) = rows.next()? {
+        let cid: i64 = row.get(0)?;
+        let name: String = row.get(1)?;
+        let type_: String = row.get(2)?;
+        println!("Column ID: {}, Name: {}, Type: {}", cid, name, type_);
+    }
+
+    Ok(())
 }
