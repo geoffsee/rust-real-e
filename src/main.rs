@@ -2,12 +2,11 @@ mod parcel_record;
 mod db;
 mod data_mapper;
 mod pretty_print;
-mod read_dbf;
-mod pretty_print_table;
+mod dbf;
 
 use crate::parcel_record::ParcelRecord;
-use crate::read_dbf::read_dbf;
-use duckdb::{Result, ToSql};
+use crate::dbf::read;
+use duckdb::{Result};
 use std::error::Error;
 
 const dbfFile: &str = "test_data/Berkeley_02_WVGISTCTax_2024_UTM83/ParcelSummary_2024_Berkeley.dbf";
@@ -15,7 +14,7 @@ const duckdbFile: &str = "parcel_data.db";
 
 fn main() -> Result<(), Box<dyn Error>> {
     // Read the parcel data
-    let mut records: Vec<ParcelRecord> = read_dbf(String::from(dbfFile))?;
+    let mut records: Vec<ParcelRecord> = read(String::from(dbfFile))?;
 
     // Save to DuckDB
     db::save_to_duckdb(duckdbFile, &mut records)?;

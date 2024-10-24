@@ -3,7 +3,7 @@ use dbase::Reader;
 use crate::data_mapper::map_record_to_parcel;
 use crate::parcel_record::ParcelRecord;
 
-pub fn read_dbf(path: String) -> duckdb::Result<Vec<ParcelRecord>, Box<dyn Error>> {
+pub fn read(path: String) -> duckdb::Result<Vec<ParcelRecord>, Box<dyn Error>> {
     // Open the DBF file
     let mut reader = Reader::from_path(path)?;
 

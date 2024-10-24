@@ -1,6 +1,4 @@
 use std::fmt;
-use duckdb::ToSql;
-use crate::pretty_print_table::pretty_print_table;
 
 #[derive(Debug,Clone)]
 pub(crate) struct ParcelRecord {
@@ -108,39 +106,4 @@ impl fmt::Display for ParcelRecord {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{}", self.id.map_or("".to_string(), |v| v.to_string()))
     }
-}
-
-pub fn pretty_print_parcel_records(records: &[ParcelRecord]) {
-    // Define headers specific to ParcelRecord
-    let headers = vec![
-        "ID",
-        "Owner",
-        "Parcel ID",
-        "Deeded Acre",
-        "Land Use",
-        "Land Appraised",
-        "Building Appraised",
-        "Total Appraised",
-    ];
-
-    // Callback function to get row data for ParcelRecord
-    let get_row_data = |record: &ParcelRecord| -> Vec<String> {
-        vec![
-            record.id.map_or("".to_string(), |v| v.to_string()),
-            record.full_owner_name.as_deref().unwrap_or("").to_string(),
-            record.parcel_id.as_deref().unwrap_or("").to_string(),
-            record.deeded_acre
-                .map_or("".to_string(), |v| format!("{:.2}", v)),
-            record.land_use.as_deref().unwrap_or("").to_string(),
-            record.land_appraised
-                .map_or("".to_string(), |v| format!("{:.2}", v)),
-            record.building_appraised
-                .map_or("".to_string(), |v| format!("{:.2}", v)),
-            record.total_appraised
-                .map_or("".to_string(), |v| format!("{:.2}", v)),
-        ]
-    };
-
-    // Use the generic function to pretty print the parcel records
-    pretty_print_table(headers, &records, get_row_data);
 }
