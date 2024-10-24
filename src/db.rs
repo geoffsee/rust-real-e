@@ -477,7 +477,6 @@ pub fn detect_inflated_property_appraisals() -> Result<(), Box<dyn std::error::E
             parcel p1
         JOIN (
             SELECT
-                county_code,
                 property_class,
                 property_type,
                 AVG(total_appraised) AS avg_appraised
@@ -486,11 +485,9 @@ pub fn detect_inflated_property_appraisals() -> Result<(), Box<dyn std::error::E
             WHERE
                 total_appraised IS NOT NULL
             GROUP BY
-                county_code,
                 property_class,
                 property_type
         ) p2 ON
-            p1.county_code = p2.county_code AND
             p1.property_class = p2.property_class AND
             p1.property_type = p2.property_type
         WHERE
@@ -563,6 +560,7 @@ pub fn detect_inflated_property_appraisals() -> Result<(), Box<dyn std::error::E
 
     Ok(())
 }
+
 
 /// Scenario 2: Ghost Owners in Property Transfers
 pub fn detect_ghost_owners() -> Result<(), Box<dyn std::error::Error>> {
