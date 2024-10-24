@@ -75,7 +75,7 @@ Get the top owners by total appraised value
 1. **Clone the Repository**:
 
    ```shell
-   git clone https://github.com/yourusername/rust-real-e.git
+   git clone https://github.com/geoffsee/rust-real-e.git
    ```
 
 2. **Navigate to the Project**:
