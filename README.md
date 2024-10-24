@@ -1,6 +1,6 @@
 # rust-real-e
 
-Processing parcel data with Rust and DuckDB.
+Processing parcel data with Rust and DuckDB. I'm not providing the data because I think the right person will find it and the wrong person will not.
 
 ### Quickstart
 
