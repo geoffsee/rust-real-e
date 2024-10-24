@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+devDependencies:
+  llama3-tokenizer-js:
+    specifier: ^1.2.0
+    version: 1.2.0
+
+packages:
+
+  /llama3-tokenizer-js@1.2.0:
+    resolution: {integrity: sha512-oMgIgK958UlvoEm3Lz/gAj3QAKpnAMb6YqlY0aTYraSK/c+V3TF3P7IWFQJe4yjM60+2/KoK+EWziec6WQ57/g==}
+    dev: true

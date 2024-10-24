@@ -1,0 +1,17 @@
+{
+  "name": "rust-real-e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prompt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geoffsee/rust-real-e.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "llama3-tokenizer-js": "^1.2.0"
+  }
+}

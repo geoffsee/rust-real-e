@@ -2,3 +2,6 @@
 /test_data
 /target
 /parcel_data.db
+/node_modules/
+prompt.js
+prompt.md
